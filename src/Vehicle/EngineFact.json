@@ -1,0 +1,123 @@
+{
+    "version":      1,
+    "fileType":     "FactMetaData",
+    "QGC.MetaData.Facts":
+[
+{
+    "name":             "health",
+    "shortDesc":        "Health State",
+    "type":             "uint8",
+    "enumStrings":      "Off,On,Hot,Overheating,Error",
+    "enumValues":       "0,1,2,3,4",
+    "decimalPlaces":    0
+},
+{
+    "name":             "ecuIndex",
+    "shortDesc":        "ECU Index",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "rpm",
+    "shortDesc":        "RPM Value",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "fuelConsumed",
+    "shortDesc":        "Fuel Consumed",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "fuelFlow",
+    "shortDesc":        "Fuel Flow",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "engineLoad",
+    "shortDesc":        "Engine Load",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "throttlePosition",
+    "shortDesc":        "Throttle Position",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "sparkDwellTime",
+    "shortDesc":        "Spark Dwell Time",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "barometricPressure",
+    "shortDesc":        "Barometric Pressure",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "intakeManifoldPressure",
+    "shortDesc":        "Intake Manifold Pressure",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "intakeManifoldTemperature",
+    "shortDesc":        "Intake Manifold Temperature",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "cylinderHeadTemperature",
+    "shortDesc":        "Cylinder Head Temperature",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "ignitionTiming",
+    "shortDesc":        "Ignition Timing",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "injectionTiming",
+    "shortDesc":        "Injection Timing",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "exhaustGasTemperature",
+    "shortDesc":        "Exhaust Gas Temperature",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "throttleOut",
+    "shortDesc":        "Throttle Out",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "ptCompensation",
+    "shortDesc":        "PT Compensation",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "ignitionVoltage",
+    "shortDesc":        "Ignition Voltage",
+    "type":             "float",
+    "decimalPlaces":    0
+},
+{
+    "name":             "fuelPressure",
+    "shortDesc":        "Fuel Pressure",
+    "type":             "float",
+    "decimalPlaces":    0
+}
+]
+}

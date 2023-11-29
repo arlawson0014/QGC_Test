@@ -591,5 +591,4 @@ FlightMap {
 
         property real centerInset: visible ? parent.height - y : 0
     }
-
 }

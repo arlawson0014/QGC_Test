@@ -278,4 +278,12 @@ Item {
         FlyViewPreFlightChecklistPopup {
         }
     }
+
+    FlyViewEngineMonitor {
+        id:             _motorMonitor
+        anchors.right:  parent.right
+        anchors.top:    instrumentPanel.bottom
+        anchors.margins: _toolsMargin * 2
+        z:              QGroundControl.zOrderTopMost
+    }
 }

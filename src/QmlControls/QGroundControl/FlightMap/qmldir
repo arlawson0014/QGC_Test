@@ -21,6 +21,7 @@ QGCPitchIndicator           1.0 QGCPitchIndicator.qml
 # Map items
 CameraTriggerIndicator      1.0 CameraTriggerIndicator.qml
 CustomMapItems              1.0 CustomMapItems.qml
+EngineMonitor               1.0 Fly
 MissionItemIndicator        1.0 MissionItemIndicator.qml
 MissionItemIndicatorDrag    1.0 MissionItemIndicatorDrag.qml
 MissionItemView             1.0 MissionItemView.qml

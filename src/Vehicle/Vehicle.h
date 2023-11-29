@@ -29,6 +29,7 @@
 #include "SysStatusSensorInfo.h"
 #include "VehicleClockFactGroup.h"
 #include "VehicleDistanceSensorFactGroup.h"
+// #include "VehicleEngineFactGroup.h"
 #include "VehicleLocalPositionFactGroup.h"
 #include "VehicleLocalPositionSetpointFactGroup.h"
 #include "VehicleWindFactGroup.h"
@@ -65,6 +66,7 @@ class TrajectoryPoints;
 class TerrainProtocolHandler;
 class ComponentInformationManager;
 class VehicleBatteryFactGroup;
+class VehicleEngineFactGroup;
 class SendMavCommandWithSignallingTest;
 class SendMavCommandWithHandlerTest;
 class RequestMessageTest;
@@ -92,6 +94,7 @@ class Vehicle : public FactGroup
     friend class InitialConnectStateMachine;
     friend class VehicleLinkManager;
     friend class VehicleBatteryFactGroup;           // Allow VehicleBatteryFactGroup to call _addFactGroup
+    friend class VehicleEngineFactGroup;
     friend class SendMavCommandWithSignallingTest;  // Unit test
     friend class SendMavCommandWithHandlerTest;     // Unit test
     friend class RequestMessageTest;                // Unit test
@@ -304,6 +307,7 @@ public:
     Q_PROPERTY(Fact* hobbs              READ hobbs              CONSTANT)
     Q_PROPERTY(Fact* throttlePct        READ throttlePct        CONSTANT)
 
+    // Q_PROPERTY(FactGroup*           engine          READ engineFactGroup            CONSTANT)
     Q_PROPERTY(FactGroup*           gps             READ gpsFactGroup               CONSTANT)
     Q_PROPERTY(FactGroup*           gps2            READ gps2FactGroup              CONSTANT)
     Q_PROPERTY(FactGroup*           wind            READ windFactGroup              CONSTANT)
@@ -650,6 +654,7 @@ public:
     Fact* hobbs                             () { return &_hobbsFact; }
     Fact* throttlePct                       () { return &_throttlePctFact; }
 
+    // FactGroup* engineFactGroup              () { return &_engineFactGroup; }
     FactGroup* gpsFactGroup                 () { return &_gpsFactGroup; }
     FactGroup* gps2FactGroup                () { return &_gps2FactGroup; }
     FactGroup* windFactGroup                () { return &_windFactGroup; }
@@ -1309,6 +1314,7 @@ private:
     Fact _hobbsFact;
     Fact _throttlePctFact;
 
+    // VehicleEngineFactGroup          _engineFactGroup;
     VehicleGPSFactGroup             _gpsFactGroup;
     VehicleGPS2FactGroup            _gps2FactGroup;
     VehicleWindFactGroup            _windFactGroup;
@@ -1362,6 +1368,7 @@ private:
     static const char* _hobbsFactName;
     static const char* _throttlePctFactName;
 
+    // static const char* _engineFactGroupName;
     static const char* _gpsFactGroupName;
     static const char* _gps2FactGroupName;
     static const char* _windFactGroupName;
