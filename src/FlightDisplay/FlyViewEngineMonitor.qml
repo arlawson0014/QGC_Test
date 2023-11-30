@@ -19,14 +19,14 @@ Item {
     width: backgroundRectangle.width
     height: backgroundRectangle.height
 
-    property var       _activeVehicle:   QGroundControl.multiVehicleManager.activeVehicle ? QGroundControl.multiVehicleManager.activeVehicle : QGroundControl.multiVehicleManager.offlineEditingVehicle
-    property FactGroup _engineFactGroup: _activeVehicle.getFactGroup("engine")
-    property Fact _rpm: _engineFactGroup.rpm
-    property var _cylinderHeadTemperature: (_engineFactGroup.temperatureUnits === 1 ? _engineFactGroup.cylinderHeadTemperature : ( ( _engineFactGroup.cylinderHeadTemperature.value * 1.8 ) + 32 ) )
-    property var _cylinderHeadTemperatureUnits: (_engineFactGroup.temperatureUnits.value === 1 ? "°F" : "°C")
-    property Fact _throttle: _engineFactGroup.throttlePosition
-    property Fact _engineStatus: _engineFactGroup.health
-    property Fact _engineStatusText: _engineFactGroup.statusText
+    // property var       _activeVehicle:   QGroundControl.multiVehicleManager.activeVehicle ? QGroundControl.multiVehicleManager.activeVehicle : QGroundControl.multiVehicleManager.offlineEditingVehicle
+    // property FactGroup _engineFactGroup: _activeVehicle.getFactGroup("engine")
+    property int _rpm: 7200 //_engineFactGroup.rpm
+    property int _cylinderHeadTemperature: 280 //(_engineFactGroup.temperatureUnits === 1 ? _engineFactGroup.cylinderHeadTemperature : ( ( _engineFactGroup.cylinderHeadTemperature.value * 1.8 ) + 32 ) )
+    property string _cylinderHeadTemperatureUnits: "°F" //(_engineFactGroup.temperatureUnits.value === 1 ? "°F" : "°C")
+    property int _throttle: 75 // _engineFactGroup.throttlePosition
+    property int _engineStatus: 2 // _engineFactGroup.health
+    property string _engineStatusText: "HOT" //_engineFactGroup.statusText
 
     readonly property int _margins: ScreenTools.defaultFontPixelWidth
     readonly property int _labelWidth: ScreenTools.defaultFontPixelWidth
@@ -50,14 +50,15 @@ Item {
                 Layout.margins:    _margins
 
                 QGCLabel {
-                    text: "RPM: " + ( isNaN(_rpm.value) ? "-" : _rpm.value )
+                    text: "RPM: " + ( isNaN(_rpm) ? "-" : _rpm )
+                    color: ( _rpm > 7000 ? "red" : ( _rpm > 6500 ? "orange" : qgcPal.text ) )
                     width:  _labelWidth
                     height: _labelHeight
                 }
                 QGCLabel {
-                    text: "Throttle: " + ( isNaN(_throttle.value) ? "-" : _throttle.value + "%" )
+                    text: "Throttle: " + ( isNaN(_throttle) ? "-" : _throttle + "%" )
                     width:  _labelWidth
-                    height: _labelHeight
+                    height: _labelHeight.valueString
                 }
             }
 
@@ -68,13 +69,14 @@ Item {
                 Layout.margins:    _margins
 
                 QGCLabel {
-                    text: "CHT: " + ( isNaN(_cylinderHeadTemperature.value) ? "-" : _cylinderHeadTemperature.value + _coreHeadTemperatureUnits )
+                    text: "CHT: " + ( isNaN(_cylinderHeadTemperature) ? "-" : _cylinderHeadTemperature + _cylinderHeadTemperatureUnits )
+                    color: ( _cylinderHeadTemperature > 290 ? "red" : ( _cylinderHeadTemperature > 275 ? "orange" : qgcPal.text ) )
                     width:  _labelWidth
                     height: _labelHeight
                 }
                 QGCLabel {
-                    text:  _engineStatusText.valueString
-                    color: _engineStatus.value === 3 ? "red" : ( _engineStatus.value === 2 ? "orange" : qgcPal.text )
+                    text:  _engineStatusText
+                    color: ( _engineStatus === 3 ? "red" : ( _engineStatus === 2 ? "orange" : qgcPal.text ) )
                     width:  _labelWidth
                     height: _labelHeight
                     Layout.alignment: Qt.AlignHCenter
